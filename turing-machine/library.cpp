@@ -79,9 +79,9 @@ void Initialize(string input) {
     if (!are_transitions_loaded) {
         cout << "Не получилось загрузить файл с переходами машины Тьюринга! (transitions.txt)" << endl;
     }
-	if (!is_alphabet_loaded) {
-		cout << "Не получилось загрузить файл с алфавитом машины Тьюринга! (alphabet.txt)" << endl;
-	}
+    if (!is_alphabet_loaded) {
+	cout << "Не получилось загрузить файл с алфавитом машины Тьюринга! (alphabet.txt)" << endl;
+    }
 
     if (are_transitions_loaded && is_alphabet_loaded) {
         machine.transition_count = machine.transitions.size();
