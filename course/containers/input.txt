@@ -1,0 +1,8 @@
+1 Jack London 1876 1916
+2 Edgar Poe 1809 1849
+3 William Shakespeare 1564 1616
+4 Rudyard Kipling 1865 1936
+5 Lewis Carroll 1832 1898
+6 Somerset Maugham 1874 1965
+7 John Tolkien 1892 1973
+2 Willian Hakespeare 1564 1616
