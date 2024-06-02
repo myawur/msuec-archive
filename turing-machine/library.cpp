@@ -8,7 +8,7 @@
  * Кожемякин Ярослав Дмитриевич (КТбо1-7)
  * 18.05.2024
  */
- /** @endcond */
+/** @endcond */
 
 #include "library.h"
 
@@ -46,7 +46,7 @@ bool SetTransitions() {
     while (fin >> index >> symbol >> replacement >> action >> to) {
         count++;
         machine.transitions.resize(count + 1);
-        machine.transitions[index][symbol] = { replacement, action, to };
+        machine.transitions[index][symbol] = {replacement, action, to};
     }
 
     fin.close();
@@ -79,9 +79,9 @@ void Initialize(string input) {
     if (!are_transitions_loaded) {
         cout << "Не получилось загрузить файл с переходами машины Тьюринга! (transitions.txt)" << endl;
     }
-	if (!is_alphabet_loaded) {
-		cout << "Не получилось загрузить файл с алфавитом машины Тьюринга! (alphabet.txt)" << endl;
-	}
+    if (!is_alphabet_loaded) {
+        cout << "Не получилось загрузить файл с алфавитом машины Тьюринга! (alphabet.txt)" << endl;
+    }
 
     if (are_transitions_loaded && is_alphabet_loaded) {
         machine.transition_count = machine.transitions.size();
@@ -103,8 +103,7 @@ void PrintConfiguration(string before, int previous_index, int previous_transiti
 
         if (i == previous_index) {
             cout << "\033[31m" << before[i] << "\033[0m";
-        }
-        else {
+        } else {
             cout << before[i];
         }
     }
@@ -118,12 +117,11 @@ void PrintConfiguration(string before, int previous_index, int previous_transiti
 
         if (i == previous_index) {
             cout << "\033[32m" << after[i] << "\033[0m";
-        }
-        else {
+        } else {
             cout << after[i];
         }
     }
-    
+
     cout << " (";
     cout << "Q\033[31m" << previous_transition << "\033[0m";
     cout << " -> ";
@@ -141,8 +139,7 @@ void PrintResult() {
 
         if (i == machine.tape.index) {
             cout << "\033[33m" << number[i] << "\033[0m";
-        }
-        else {
+        } else {
             cout << number[i];
         }
     }
@@ -159,8 +156,7 @@ bool IsValidInput(string input) {
 
         if (input[i] != '0' && input[i] != '1' && input[i] != '2') {
             return false;
-        }
-        else if (input[i] != '0') {
+        } else if (input[i] != '0') {
             is_beginning = false;
         }
     }
@@ -185,8 +181,7 @@ bool IsValidByAlphabet(string input) {
 void MoveHead(char action) {
     if (action == '>') {
         machine.tape.index++;
-    }
-    else if (action == '<') {
+    } else if (action == '<') {
         machine.tape.index--;
     }
 }
@@ -195,8 +190,7 @@ void Step() {
     if (machine.tape.index < 0) {
         machine.tape.number = '_' + machine.tape.number;
         machine.tape.index++;
-    }
-    else if (machine.tape.index >= machine.tape.number.size()) {
+    } else if (machine.tape.index >= machine.tape.number.size()) {
         machine.tape.number += '_';
     }
 
@@ -209,8 +203,7 @@ void Step() {
     string previous_number = machine.tape.number;
     if (machine.tape.index < machine.tape.number.size()) {
         machine.tape.number[machine.tape.index] = transition.replacement;
-    }
-    else {
+    } else {
         machine.tape.number += transition.replacement;
     }
     int previous_transition = machine.tape.transition;

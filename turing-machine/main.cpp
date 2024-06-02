@@ -41,7 +41,7 @@ int main() {
 
         // Convert(machine);
         // PrintResult(machine.tape.number, machine.tape.index);
-        
+
         // TODO: почему в начале слова остается пробел?
         // TODO: я убрал пробел перед выводом ленты, но это костыль
         // cout << "Результат: " << machine.tape.number << endl;
